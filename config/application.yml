@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework: INFO
+    com.mkyong: DEBUG
+
+spring:
+  cloud:
+    config:
+      enabled: false
+  profiles:
+    active: fsa23
+
+integration:
+  backend: "http://backend-service:8089"
