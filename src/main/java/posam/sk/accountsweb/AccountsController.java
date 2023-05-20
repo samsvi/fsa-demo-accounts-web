@@ -22,7 +22,7 @@ public class AccountsController {
 
 	@GetMapping("/accounts")
 	public String accounts(Model model) {
-		String uri = integrationProperties.getBackend() + "/accounts";
+		String uri = integrationProperties.getBackend() + "/usersall";
         RestTemplate restTemplate = new RestTemplate();     
         ResponseEntity<List<Account>> accountsResponse =
             restTemplate.exchange(uri, HttpMethod.GET, null, new ParameterizedTypeReference<List<Account>>() {
@@ -37,7 +37,7 @@ public class AccountsController {
 
 	@GetMapping("/account")
 	public String account(@RequestParam(name="id", required=false, defaultValue="1") String id, Model model) {
-		String uri = integrationProperties.getBackend() + "/accounts/" + id;
+		String uri = integrationProperties.getBackend() + "/userbyid/" + id;
 	    RestTemplate restTemplate = new RestTemplate();
 	    
 	    Account account = restTemplate.getForObject(uri, Account.class);
